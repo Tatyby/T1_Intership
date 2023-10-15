@@ -3,17 +3,17 @@ package com.example.testinternshipt1.service;
 import com.example.testinternshipt1.model.AnalysisRequest;
 import com.example.testinternshipt1.model.AnalysisResponse;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
-@Log4j2
 @RequiredArgsConstructor
-public class ServiceAnalysisImp implements ServiceAnalysis {
+public class AnalysisServiceImp implements AnalysisService {
     @Override
     public AnalysisResponse analyze(AnalysisRequest analysisRequest) {
         String lowerCaseName = analysisRequest.getName().toLowerCase();

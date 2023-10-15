@@ -2,7 +2,7 @@ package com.example.testinternshipt1.controller;
 
 import com.example.testinternshipt1.model.AnalysisRequest;
 import com.example.testinternshipt1.model.AnalysisResponse;
-import com.example.testinternshipt1.service.ServiceAnalysisImp;
+import com.example.testinternshipt1.service.AnalysisServiceImp;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,15 +19,15 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(controllers = ControllerAnalysis.class)
-public class ControllerAnalysisTest {
+@WebMvcTest(controllers = AnalysisController.class)
+public class AnalysisControllerTest {
+    @MockBean
+    private AnalysisServiceImp serviceAnalysisImp;
+    private AnalysisRequest analysisRequest;
+    private AnalysisResponse analysisResponse;
+    private Map<String, Long> expectedMap;
     @Autowired
     private MockMvc mockMvc;
-    @MockBean
-    ServiceAnalysisImp serviceAnalysisImp;
-    AnalysisRequest analysisRequest;
-    AnalysisResponse analysisResponse;
-    Map<String, Long> expectedMap;
 
     @BeforeEach
     void setUp() {
@@ -46,7 +46,7 @@ public class ControllerAnalysisTest {
         mockMvc.perform(post("/analyze")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(analysisRequest)))
-                .andExpect(status().isOk());
+                .andExpect(status().isCreated());
     }
 }
 
