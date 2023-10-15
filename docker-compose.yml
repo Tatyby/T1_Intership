@@ -1,0 +1,9 @@
+version: '1'
+services:
+   app:
+    container_name: analysis
+    image: 'analysis'
+    build:
+      context: .
+    ports:
+      - "8085:8085"
