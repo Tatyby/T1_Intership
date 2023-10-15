@@ -10,5 +10,5 @@ import java.util.Map;
 @Accessors(chain = true)
 public class AnalysisResponse {
     @Schema(description = "Частота встречи символов по заданной строке")
-    private Map<String, Integer> analysis;
+    private Map<String, Long> analysis;
 }

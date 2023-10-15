@@ -27,15 +27,15 @@ public class ControllerAnalysisTest {
     ServiceAnalysisImp serviceAnalysisImp;
     AnalysisRequest analysisRequest;
     AnalysisResponse analysisResponse;
-    Map<String, Integer> expectedMap;
+    Map<String, Long> expectedMap;
 
     @BeforeEach
     void setUp() {
         analysisRequest = new AnalysisRequest().setName("aaabbbbbc");
         expectedMap = new HashMap<>();
-        expectedMap.put("a", 3);
-        expectedMap.put("b", 5);
-        expectedMap.put("c", 1);
+        expectedMap.put("a", 3L);
+        expectedMap.put("b", 5L);
+        expectedMap.put("c", 1L);
         analysisResponse = new AnalysisResponse().setAnalysis(expectedMap);
     }
 

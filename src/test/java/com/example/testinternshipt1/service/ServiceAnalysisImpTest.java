@@ -34,19 +34,19 @@ public class ServiceAnalysisImpTest {
 
     @Test
     public void analyzeTest() {
-        Map<String, Integer> expectedMap = new HashMap<>();
-        expectedMap.put("a", 3);
-        expectedMap.put("b", 5);
-        expectedMap.put("c", 1);
+        Map<String, Long> expectedMap = new HashMap<>();
+        expectedMap.put("a", 3L);
+        expectedMap.put("b", 5L);
+        expectedMap.put("c", 1L);
         Assertions.assertEquals(expectedMap, analysisResponse.getAnalysis());
     }
 
     @Test
     public void analyzeTestSort() {
-        List<Map.Entry<String, Integer>> entryList = new ArrayList<>(analysisResponse.getAnalysis().entrySet());
+        List<Map.Entry<String, Long>> entryList = new ArrayList<>(analysisResponse.getAnalysis().entrySet());
         for (int i = 1; i < entryList.size(); i++) {
-            Map.Entry<String, Integer> prevEntry = entryList.get(i - 1);
-            Map.Entry<String, Integer> currentEntry = entryList.get(i);
+            Map.Entry<String, Long> prevEntry = entryList.get(i - 1);
+            Map.Entry<String, Long> currentEntry = entryList.get(i);
             Assertions.assertTrue(prevEntry.getValue() >= currentEntry.getValue());
         }
 
