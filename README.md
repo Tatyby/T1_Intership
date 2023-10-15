@@ -15,8 +15,8 @@
 
 Запуск приложения :
 
-- скачать образ с помощью команды: docker pull tatiby/testinternshipt1:1.1
-- запустить контейнер на основе образа с помощью команды: docker run -d -p 8085:8085 tatiby/testinternshipt1:1.1
+- скачать образ с помощью команды: docker pull tatiby/testinternshipt1:1.2
+- запустить контейнер на основе образа с помощью команды: docker run -d -p 8085:8085 tatiby/testinternshipt1:1.2
 
 Либо:
 
